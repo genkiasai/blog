@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="test1">
+        <div class="test2">
+            <div class="test3">
+                <div class="test4">
+                    <p id="child">子要素</p>
+                    <p id="output"></p>
+                    <p id="output2"></p>
+                    <p id="output3"></p>
+                    <p id="output4"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 親要素を取得
+        var po = $("#child").parent();
+        // 親要素のクラスを取得
+        var pc = po.prop("class");
+        // 親要素の親要素を取得
+        var ppc = $("#child").parent().parent().prop("class");
+        // 挿入するHTMLを定義
+        var outputHtml = "<span style='color:red'>赤文字を挿入</span>"
+        // id=outputの段落に取得情報を表示
+        $("#output").text("取得した親要素：" + po);
+        // id=output2の段落に親要素のクラスを表示
+        $("#output2").text("親要素のクラス：" + pc);
+        // id=output3に親要素の親要素のクラスを挿入
+        $("#output3").text("親要素の親要素のクラス：" + ppc);
+        // id=output4にHTMLを挿入
+        $("#output4").html("id=output3の段落に" + outputHtml);
+
+        // コンソールに取得情報を出力
+        console.log(po, pc);
+    </script>
+</body>
+</html>

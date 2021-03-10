@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hoge1">
+        <div class="hoge2">
+            <div class="hoge3">
+                <div class="hoge4">
+                    <p id="child">子要素</p>
+                    <p id="output"></p>
+                    <!-- <p id="output2"></p>
+                    <p id="output3"></p>
+                    <p id="output4"></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // id=childの要素の先祖要素を取得
+        var ao = $("#child").parents();
+        // id=outputの段落に取得した先祖要素を出力
+        $("#output").text(ao);
+        
+        // コンソールに取得情報を出力
+        console.log(ao);
+    </script>
+</body>
+</html>
