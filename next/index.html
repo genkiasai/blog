@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>next</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hoge1">
+        <div class="hoge2">
+            <div class="hoge3">
+                <div class="hoge4">
+                    <p id="origin">基準の要素</p>
+                    <p id="next1">基準の要素の1つとなりの要素</p>
+                    <p id="next2">基準の要素の2つとなりの要素</p>
+                    <p id="next3">基準の要素の3つとなりの要素</p>
+                    <p id="next4">基準の要素の4つとなりの要素</p>
+                    <p id="next5">基準の要素の5つとなりの要素</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // id=originの要素の次の要素を取得(.clone以降はWebブラウザに表示するための処理)
+        var nextElement1 = $("#origin").next().clone().prop("id", "nextElement1");
+        // id=originの要素の次のpタグを取得(.clone以降はWebブラウザに表示するための処理)
+        var nextElementP = $("#origin").next("p").clone().prop("id", "nextElementP");
+        // id=originの要素の次のaタグを取得（ない）
+        var nextElementA = $("#origin").next("a").clone().prop("id", "nextElementA");
+        // id=originの要素の次の次の次の次の次の要素を取得(.clone以降はWebブラウザに表示するための処理)
+        var nextElement5 = $("#origin").next().next().next().next().next().clone().prop("id", "nextElement5");
+
+        // Webブラウザに取得した要素を赤色で出力
+        $(".hoge4").append(nextElement1.css("color", "red"));
+        $(".hoge4").append(nextElementP.css("color", "red"));
+        $(".hoge4").append(nextElementA.css("color", "red"));   // 出力されない
+        // Webブラウザに取得した要素を青色で出力
+        $(".hoge4").append(nextElement5.css("color", "blue"));
+
+
+        // コンソールに取得情報を出力
+        console.log(nextElement1, nextElementP, nextElementA, nextElement5);
+    </script>
+</body>
+</html>

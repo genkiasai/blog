@@ -10,25 +10,14 @@
     <div class="hoge1">
         <div class="hoge2">
             <p class="greet" id="goodmorning">おはようございます</p>
-            <p class="greet" id="goodafternoon">こんにちは</p>
             <p class="greet" id="goodevening">こんばんは</p>
         </div>
     </div>
 
     <!-- ここからJavaScript -->
     <script>
-    $("p").after(function(index, content) {
-        var ctt = "";
-        if (index === 0) {
-            ctt = "<p style='color:red'>" + content + "</p>";
-        } else if (index === 1) {
-            ctt = "<p style='color:green'>" + content + "</p>";
-        } else if (index === 2) {
-            ctt = "<p style='color:blue'>" + content + "</p>";
-        }
-        console.log(index, content);
-        return ctt;
-    });
+        // 「おはようございます」の次に「こんにちは」を赤文字で挿入
+        $("#goodmorning").after("<p class='greet' id='goodafternoon' style='color:red'>こんにちは</p>");
     </script>
 </body>
 </html>

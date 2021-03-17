@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <p id="greet">こんにちは、佐藤さん</p>
+        <p id="sentence">
+            この段落には<br>
+            改行や 空白文字（全角と半角）　が<br>
+            含まれます。
+        </p>
+    </div>
+
+    <!-- ここからJavaScript -->
+    <script>
+        // id=greetの「こんにちは」を「こんばんは」に置き換え
+        var result1 = $("#greet").text().replace("こんにちは", "こんばんは");
+        // 置き換えた文字を赤色でWebブラウザに出力
+        $("div").append("<p id='great2' style='color:red'>" + result1 + "</p>");
+
+        // id=sentenceの「含まれます」を「含まれません」に置き換え
+        var sentence = $("#sentence").text().replace("含まれます", "含まれません");
+        // 変数sentenceの改行文字と空白文字を削除（正規表現）
+        var result2 = sentence.replace(/\s|\n|　/g, "");
+        // 置き換えた文字を赤色でWebブラウザに出力
+        $("div").append("<p id='sentence2' style='color:red'>" + result2 + "</p>");
+        
+        // コンソールに取得情報を出力
+        console.log(result1);
+        console.log(sentence);
+        console.log(result2);
+    </script>
+</body>
+</html>

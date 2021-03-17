@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nextAll</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hoge1">
+        <div class="hoge2">
+            <div class="hoge3">
+                <div class="hoge4">
+                    <p class="origin" id="origin">基準の要素</p>
+                    <p class="hogeP1" id="next1">基準の要素の1つとなりの要素</p>
+                    <p class="hogeP2" id="next2">基準の要素の2つとなりの要素</p>
+                    <p class="hogeP1" id="next3">基準の要素の3つとなりの要素</p>
+                    <p class="hogeP2" id="next4">基準の要素の4つとなりの要素</p>
+                    <p class="hogeP3" id="next5">基準の要素の5つとなりの要素</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ここからJavaScript -->
+    <script>
+        // id=originの要素の次以降の兄弟要素を取得
+        var nextElements1 = $("#origin").nextAll();
+        // id=originの要素の次以降の兄弟要素からhoge1クラスの要素を取得
+        var nextElements2 = $("#origin").nextAll(".hogeP1");
+        // id=originの要素の次以降の兄弟要素からid=next5の要素を取得
+        var nextElements3 = $("#origin").nextAll("#next5");
+
+        // コンソールに取得情報を出力
+        console.log(nextElements1, nextElements2, nextElements3);
+
+        // Webブラウザに取得した「id=originの要素の次以降の兄弟要素」を赤色で出力
+        for ($i=0; $i < nextElements1.length; $i++) {
+            $(".hoge4").append(nextElements1.eq($i).clone().css("color", "red"));
+        };
+        // Webブラウザに取得した「id=originの要素の次以降の兄弟要素にあるhoge1クラスの要素」を青色で出力
+        for ($i=0; $i < nextElements2.length; $i++) {
+            $(".hoge4").append(nextElements2.eq($i).clone().css("color", "blue"));
+        };
+        // Webブラウザに取得した「id=originの要素の次以降の兄弟要素にあるid=next5の要素」を緑色で出力
+        for ($i=0; $i < nextElements3.length; $i++) {
+            $(".hoge4").append(nextElements3.eq($i).clone().css("color", "green"));
+        };
+    </script>
+</body>
+</html>

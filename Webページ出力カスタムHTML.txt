@@ -1,6 +1,4 @@
 <div class="innerHtml">
-<div class="innerTitle">Webページ</div>
+<div class="innerTitle">Webブラウザ出力画面</div>
 
 </div>
-
-
