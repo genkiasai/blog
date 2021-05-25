@@ -1,0 +1,12 @@
+.nomal-image-area,
+.fix-image-area {
+    width: 100%;
+    height: 800px;
+    background-image: url("./image.jpg");
+    margin: 40px 0;
+    background-size: cover;
+}
+
+.fix-image-area {
+    background-attachment: fixed;
+}
